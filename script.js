@@ -70,7 +70,7 @@ const PROJECT_FILES = {
       'CASE STUDY 3.jpg',
       'SHEET NO.7.jpg',
       'STANDARDS SHEET.jpg',
-      'site plan.png'
+      'SITE PLAN.png'
     ],
     pdfs: [
       'ADMIN AND SWIMMING POOL BLOCK.png',
@@ -85,7 +85,7 @@ const PROJECT_FILES = {
       'SHEET NO.7.png',
       'SITE ANALYIS.png',
       'STANDARDS SHEET.png',
-      'site plan.png'
+      'SITE PLAN.png'
     ]
   },
   project2: {
@@ -104,7 +104,7 @@ const PROJECT_FILES = {
       'CASE STUDY 3.jpg',
       'SHEET NO.7.jpg',
       'STANDARDS SHEET.jpg',
-      'site plan.png'
+      'SITE PLAN.png'
     ],
     pdfs: [
       'ADMIN AND SWIMMING POOL BLOCK.png',
@@ -119,7 +119,7 @@ const PROJECT_FILES = {
       'SHEET NO.7.png',
       'SITE ANALYIS.png',
       'STANDARDS SHEET.png',
-      'site plan.png'
+      'SITE PLAN.png'
     ]
   },
   project3: {
@@ -194,7 +194,7 @@ const PROJECTS = {
     tools: 'AutoCAD · SketchUp · Lumion',
     area: 'Masterplan',
     category: 'public',
-    heroSrc: 'files/project2 - pool/img/SITE ANALYIS.jpg',
+    heroSrc: 'files/project2%20-%20pool/img/SITE%20ANALYIS.jpg',
     heroGradient: 'linear-gradient(135deg, #1b2838 0%, #2a475e 100%)',
     description: [
       'Sports Complex with pneumatic form structures.',
@@ -302,24 +302,25 @@ const PROJECTS = {
       if (fileData.images && fileData.images.length > 0) {
         proj.images = fileData.images.map(imgName => {
           let src = '';
+          const encodedName = encodeURIComponent(imgName);
           if (fileData.imgFolder) {
-            src = `${fileData.imgFolder}/${imgName}`;
+            src = `${fileData.imgFolder}/${encodedName}`;
           } else {
-            src = `files/${fileKey}/${imgName}`;
+            src = `files/${encodeURIComponent(fileKey)}/${encodedName}`;
           }
           let caption = imgName.replace(/\.[^/.]+$/, ""); // Remove file extension for caption
           return { src, caption };
         });
       }
-      
+
       // Map PDFs/Files for Downloads
       if (fileData.pdfs && fileData.pdfs.length > 0) {
         proj.downloads = fileData.pdfs.map(pdfName => {
           // Fallback to imgFolder or project folder if pdfFolder isn't explicitly set
-          let folder = fileData.pdfFolder || (fileData.imgFolder && !fileData.imgFolder.endsWith('/img') ? fileData.imgFolder : `files/${fileKey}`);
+          let folder = fileData.pdfFolder || (fileData.imgFolder && !fileData.imgFolder.endsWith('/img') ? fileData.imgFolder : `files/${encodeURIComponent(fileKey)}`);
           return {
             name: pdfName.replace(/\.[^/.]+$/, ""),
-            file: `${folder}/${pdfName}`,
+            file: `${folder}/${encodeURIComponent(pdfName)}`,
             size: pdfName.split('.').pop().toUpperCase()
           };
         });
