@@ -70,22 +70,22 @@ const PROJECT_FILES = {
       'CASE STUDY 3.jpg',
       'SHEET NO.7.jpg',
       'STANDARDS SHEET.jpg',
-      'SITE PLAN.png'
+      'site plan.png'
     ],
     pdfs: [
-      'ADMIN AND SWIMMING POOL BLOCK.png',
-      'CASE STUDY 1.png',
-      'CASE STUDY 2.png',
-      'CASE STUDY 3.png',
-      'CONCEPT.png',
-      'MAIN BUILDING BLOCK 1.png',
-      'MAIN BUILDING BLOCK 2.png',
-      'Pneumatic Structure 2.png',
-      'Pneumatic structure.png',
-      'SHEET NO.7.png',
-      'SITE ANALYIS.png',
-      'STANDARDS SHEET.png',
-      'SITE PLAN.png'
+      'ADMIN AND SWIMMING POOL BLOCK.jpg',
+      'CASE STUDY 1.jpg',
+      'CASE STUDY 2.jpg',
+      'CASE STUDY 3.jpg',
+      'CONCEPT.jpg',
+      'MAIN BUILDING BLOCK 1.jpg',
+      'MAIN BUILDING BLOCK 2.jpg',
+      'Pneumatic Structure 2.jpg',
+      'Pneumatic structure.jpg',
+      'SHEET NO.7.jpg',
+      'SITE ANALYIS.jpg',
+      'STANDARDS SHEET.jpg',
+      'site plan.png'
     ]
   },
   project2: {
@@ -104,29 +104,28 @@ const PROJECT_FILES = {
       'CASE STUDY 3.jpg',
       'SHEET NO.7.jpg',
       'STANDARDS SHEET.jpg',
-      'SITE PLAN.png'
+      'site plan.png'
     ],
     pdfs: [
-      'ADMIN AND SWIMMING POOL BLOCK.png',
-      'CASE STUDY 1.png',
-      'CASE STUDY 2.png',
-      'CASE STUDY 3.png',
-      'CONCEPT.png',
-      'MAIN BUILDING BLOCK 1.png',
-      'MAIN BUILDING BLOCK 2.png',
-      'Pneumatic Structure 2.png',
-      'Pneumatic structure.png',
-      'SHEET NO.7.png',
-      'SITE ANALYIS.png',
-      'STANDARDS SHEET.png',
-      'SITE PLAN.png'
+      'ADMIN AND SWIMMING POOL BLOCK.jpg',
+      'CASE STUDY 1.jpg',
+      'CASE STUDY 2.jpg',
+      'CASE STUDY 3.jpg',
+      'CONCEPT.jpg',
+      'MAIN BUILDING BLOCK 1.jpg',
+      'MAIN BUILDING BLOCK 2.jpg',
+      'Pneumatic Structure 2.jpg',
+      'Pneumatic structure.jpg',
+      'SHEET NO.7.jpg',
+      'SITE ANALYIS.jpg',
+      'STANDARDS SHEET.jpg',
+      'site plan.png'
     ]
   },
   project3: {
     imgFolder: 'files/project3',
     pdfFolder: null,
     images: [
-      '0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg',
       '7.png', '12.png', '13.png', '14.png', '15.png', '16.png',
       '17.png', '18.png', '19.png', '20.png', '21.png', '22.png',
       '23.png', '24.png', '25.png', '26.png', '29.png', '30.png',
@@ -136,10 +135,9 @@ const PROJECT_FILES = {
     pdfs: []
   },
   project4: {
-    imgFolder: 'files/project4',
+    imgFolder: 'files/portfolio/8 sem images',
     pdfFolder: null,
     images: [
-      '0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg',
       '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg',
       '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg',
       '18.jpg', '19.jpg', '20.jpg', '21.jpg', '22.jpg', '23.jpg',
@@ -148,10 +146,10 @@ const PROJECT_FILES = {
     pdfs: []
   },
   project5: {
-    imgFolder: 'files/project5',
+    imgFolder: 'files/portfolio/6 sem images',
     pdfFolder: null,
     images: [
-      '9.jpg', '18.jpg', '19.jpg', '31.jpg', '32.jpg', '33.jpg'
+      '0.jpg', '1.jpg', '6.jpg', '7.png', '12.png', '13.png'
     ],
     pdfs: []
   }
@@ -194,7 +192,7 @@ const PROJECTS = {
     tools: 'AutoCAD · SketchUp · Lumion',
     area: 'Masterplan',
     category: 'public',
-    heroSrc: 'files/project2%20-%20pool/img/SITE%20ANALYIS.jpg',
+    heroSrc: 'files/project2%20-%20pool/img/site%20plan.png',
     heroGradient: 'linear-gradient(135deg, #1b2838 0%, #2a475e 100%)',
     description: [
       'Sports Complex with pneumatic form structures.',
@@ -217,7 +215,7 @@ const PROJECTS = {
     tools: 'AutoCAD · SketchUp · V-Ray',
     area: 'Various',
     category: 'public',
-    heroSrc: 'files/project3/0.jpg',
+    heroSrc: 'files/project3/7.png',
     heroGradient: 'linear-gradient(135deg, #2D3748 0%, #4A5568 100%)',
     description: [
       'A comprehensive collection of academic work spanning multiple semesters, showcasing progressive development of design thinking and technical skills.',
@@ -240,7 +238,7 @@ const PROJECTS = {
     tools: 'AutoCAD · SketchUp · Lumion',
     area: 'Leisure Facility',
     category: 'public',
-    heroSrc: 'files/project4/0.jpg',
+    heroSrc: 'files/portfolio/8%20sem%20images/0.jpg',
     heroGradient: 'linear-gradient(135deg, #1E3A5F 0%, #2C5282 100%)',
     description: [
       'Leisure facility designed around a central swimming pool, addressing circulation patterns, safety protocols, and user experience in aquatic architecture.',
@@ -263,7 +261,7 @@ const PROJECTS = {
     tools: 'AutoCAD · SketchUp · Photoshop',
     area: 'Various',
     category: 'public',
-    heroSrc: 'files/project5/9.jpg',
+    heroSrc: 'files/portfolio/6%20sem%20images/9.jpg',
     heroGradient: 'linear-gradient(135deg, #744210 0%, #B7791F 100%)',
     description: [
       '6th semester academic portfolio demonstrating spatial thinking, architectural representation, and problem-solving skills through various design exercises.',
