@@ -27,30 +27,30 @@
         "value": "9th"
       }
     ],
-    "heroSrc": "projects/project1/img/9TH%20SEM%20C0%20ST-7%20BY%20SA_page-0001.jpg",
+    "heroSrc": "projects/project1/img/9TH_SEM_C0_ST-7_BY_SA_PAGE-0001.jpg",
     "images": [
       {
-        "src": "projects/project1/img/9TH%20SEM%20C0%20ST-7%20BY%20SA_page-0001.jpg",
-        "caption": "9TH SEM C0 ST 7 BY SA page 0001"
+        "src": "projects/project1/img/9TH_SEM_C0_ST-7_BY_SA_PAGE-0001.jpg",
+        "caption": "9TH SEM C0 ST 7 BY SA PAGE 0001"
       },
       {
-        "src": "projects/project1/img/9TH%20SEM%20CS%20ST-2%20BY%20SA.jpg",
+        "src": "projects/project1/img/9TH_SEM_CS_ST-2_BY_SA.jpg",
         "caption": "9TH SEM CS ST 2 BY SA"
       },
       {
-        "src": "projects/project1/img/9TH%20SEM%20CS%20ST-3%20BY%20SA.jpg",
+        "src": "projects/project1/img/9TH_SEM_CS_ST-3_BY_SA.jpg",
         "caption": "9TH SEM CS ST 3 BY SA"
       },
       {
-        "src": "projects/project1/img/9TH%20SEM%20INTRO%20ST-1%20BY%20SA.jpg",
+        "src": "projects/project1/img/9TH_SEM_INTRO_ST-1_BY_SA.jpg",
         "caption": "9TH SEM INTRO ST 1 BY SA"
       },
       {
-        "src": "projects/project1/img/9TH%20SEM%20LS%20ST-5%20BY%20SA.jpg",
+        "src": "projects/project1/img/9TH_SEM_LS_ST-5_BY_SA.jpg",
         "caption": "9TH SEM LS ST 5 BY SA"
       },
       {
-        "src": "projects/project1/img/9TH%20SEM%20SA%20ST-6%20BY%20SA.jpg",
+        "src": "projects/project1/img/9TH_SEM_SA_ST-6_BY_SA.jpg",
         "caption": "9TH SEM SA ST 6 BY SA"
       },
       {
@@ -58,15 +58,15 @@
         "caption": "ELEVATION"
       },
       {
-        "src": "projects/project1/img/FIRST%20FLOOR%20PLAN.jpg",
+        "src": "projects/project1/img/FIRST_FLOOR_PLAN.jpg",
         "caption": "FIRST FLOOR PLAN"
       },
       {
-        "src": "projects/project1/img/FOUTH%20FLOOR%20PLAN.jpg",
+        "src": "projects/project1/img/FOUTH_FLOOR_PLAN.jpg",
         "caption": "FOUTH FLOOR PLAN"
       },
       {
-        "src": "projects/project1/img/SECOND%20FLOOR%20PLAN.jpg",
+        "src": "projects/project1/img/SECOND_FLOOR_PLAN.jpg",
         "caption": "SECOND FLOOR PLAN"
       },
       {
@@ -74,51 +74,51 @@
         "caption": "SECTION"
       },
       {
-        "src": "projects/project1/img/SITE%20PLAN.jpg",
+        "src": "projects/project1/img/SITE_PLAN.jpg",
         "caption": "SITE PLAN"
       },
       {
-        "src": "projects/project1/img/st-2%20(thrust%20area).jpg",
-        "caption": "st 2 (thrust area)"
+        "src": "projects/project1/img/ST-2_(THRUST_AREA).jpg",
+        "caption": "ST 2 (THRUST AREA)"
       },
       {
-        "src": "projects/project1/img/TERRACE%20FLOOR%20PLAN.jpg",
+        "src": "projects/project1/img/TERRACE_FLOOR_PLAN.jpg",
         "caption": "TERRACE FLOOR PLAN"
       },
       {
-        "src": "projects/project1/img/WhatsApp%20Image%202026-03-16%20at%206.11.59%20PM.jpeg",
-        "caption": "WhatsApp Image 2026 03 16 at 6.11.59 PM"
+        "src": "projects/project1/img/WHATSAPP_IMAGE_2026-03-16_AT_6.11.59_PM.jpeg",
+        "caption": "WHATSAPP IMAGE 2026 03 16 AT 6.11.59 PM"
       }
     ],
     "downloads": [
       {
         "name": "9TH SEM C0 ST 7 BY SA",
-        "file": "projects/project1/download/9TH%20SEM%20C0%20ST-7%20BY%20SA.pdf",
+        "file": "projects/project1/download/9TH_SEM_C0_ST-7_BY_SA.pdf",
         "size": "PDF"
       },
       {
         "name": "9TH SEM CS ST 2 BY SA",
-        "file": "projects/project1/download/9TH%20SEM%20CS%20ST-2%20BY%20SA.pdf",
+        "file": "projects/project1/download/9TH_SEM_CS_ST-2_BY_SA.pdf",
         "size": "PDF"
       },
       {
         "name": "9TH SEM CS ST 3 BY SA",
-        "file": "projects/project1/download/9TH%20SEM%20CS%20ST-3%20BY%20SA.pdf",
+        "file": "projects/project1/download/9TH_SEM_CS_ST-3_BY_SA.pdf",
         "size": "PDF"
       },
       {
         "name": "9TH SEM INTRO ST 1 BY SA",
-        "file": "projects/project1/download/9TH%20SEM%20INTRO%20ST-1%20BY%20SA.pdf",
+        "file": "projects/project1/download/9TH_SEM_INTRO_ST-1_BY_SA.pdf",
         "size": "PDF"
       },
       {
         "name": "9TH SEM LS ST 5 BY SA",
-        "file": "projects/project1/download/9TH%20SEM%20LS%20ST-5%20BY%20SA.pdf",
+        "file": "projects/project1/download/9TH_SEM_LS_ST-5_BY_SA.pdf",
         "size": "PDF"
       },
       {
         "name": "9TH SEM SA ST 6 BY SA",
-        "file": "projects/project1/download/9TH%20SEM%20SA%20ST-6%20BY%20SA.pdf",
+        "file": "projects/project1/download/9TH_SEM_SA_ST-6_BY_SA.pdf",
         "size": "PDF"
       },
       {
@@ -128,17 +128,17 @@
       },
       {
         "name": "FIRST FLOOR PLAN",
-        "file": "projects/project1/download/FIRST%20FLOOR%20PLAN.pdf",
+        "file": "projects/project1/download/FIRST_FLOOR_PLAN.pdf",
         "size": "PDF"
       },
       {
         "name": "FOUTH FLOOR PLAN",
-        "file": "projects/project1/download/FOUTH%20FLOOR%20PLAN.pdf",
+        "file": "projects/project1/download/FOUTH_FLOOR_PLAN.pdf",
         "size": "PDF"
       },
       {
         "name": "SECOND FLOOR PLAN",
-        "file": "projects/project1/download/SECOND%20FLOOR%20PLAN.pdf",
+        "file": "projects/project1/download/SECOND_FLOOR_PLAN.pdf",
         "size": "PDF"
       },
       {
@@ -148,22 +148,22 @@
       },
       {
         "name": "SITE PLAN",
-        "file": "projects/project1/download/SITE%20PLAN.pdf",
+        "file": "projects/project1/download/SITE_PLAN.pdf",
         "size": "PDF"
       },
       {
-        "name": "st 2 (thrust area)",
-        "file": "projects/project1/download/st-2%20(thrust%20area).pdf",
+        "name": "ST 2 (THRUST AREA)",
+        "file": "projects/project1/download/ST-2_(THRUST_AREA).pdf",
         "size": "PDF"
       },
       {
         "name": "STRUCTURE DRAWING",
-        "file": "projects/project1/download/STRUCTURE%20DRAWING.pdf",
+        "file": "projects/project1/download/STRUCTURE_DRAWING.pdf",
         "size": "PDF"
       },
       {
         "name": "TERRACE FLOOR PLAN",
-        "file": "projects/project1/download/TERRACE%20FLOOR%20PLAN.pdf",
+        "file": "projects/project1/download/TERRACE_FLOOR_PLAN.pdf",
         "size": "PDF"
       }
     ]
@@ -196,22 +196,22 @@
         "value": "2024"
       }
     ],
-    "heroSrc": "projects/project2/img/ADMIN%20AND%20SWIMMING%20POOL%20BLOCK.jpg",
+    "heroSrc": "projects/project2/img/ADMIN_AND_SWIMMING_POOL_BLOCK.jpg",
     "images": [
       {
-        "src": "projects/project2/img/ADMIN%20AND%20SWIMMING%20POOL%20BLOCK.jpg",
+        "src": "projects/project2/img/ADMIN_AND_SWIMMING_POOL_BLOCK.jpg",
         "caption": "ADMIN AND SWIMMING POOL BLOCK"
       },
       {
-        "src": "projects/project2/img/CASE%20STUDY%201.jpg",
+        "src": "projects/project2/img/CASE_STUDY_1.jpg",
         "caption": "CASE STUDY 1"
       },
       {
-        "src": "projects/project2/img/CASE%20STUDY%202.jpg",
+        "src": "projects/project2/img/CASE_STUDY_2.jpg",
         "caption": "CASE STUDY 2"
       },
       {
-        "src": "projects/project2/img/CASE%20STUDY%203.jpg",
+        "src": "projects/project2/img/CASE_STUDY_3.jpg",
         "caption": "CASE STUDY 3"
       },
       {
@@ -219,57 +219,57 @@
         "caption": "CONCEPT"
       },
       {
-        "src": "projects/project2/img/MAIN%20BUILDING%20BLOCK%201.jpg",
+        "src": "projects/project2/img/MAIN_BUILDING_BLOCK_1.jpg",
         "caption": "MAIN BUILDING BLOCK 1"
       },
       {
-        "src": "projects/project2/img/MAIN%20BUILDING%20BLOCK%202.jpg",
+        "src": "projects/project2/img/MAIN_BUILDING_BLOCK_2.jpg",
         "caption": "MAIN BUILDING BLOCK 2"
       },
       {
-        "src": "projects/project2/img/Pneumatic%20Structure%202.jpg",
-        "caption": "Pneumatic Structure 2"
+        "src": "projects/project2/img/PNEUMATIC_STRUCTURE_2.jpg",
+        "caption": "PNEUMATIC STRUCTURE 2"
       },
       {
-        "src": "projects/project2/img/Pneumatic%20structure.jpg",
-        "caption": "Pneumatic structure"
+        "src": "projects/project2/img/PNEUMATIC_STRUCTURE.jpg",
+        "caption": "PNEUMATIC STRUCTURE"
       },
       {
-        "src": "projects/project2/img/SHEET%20NO.7.jpg",
+        "src": "projects/project2/img/SHEET_NO.7.jpg",
         "caption": "SHEET NO.7"
       },
       {
-        "src": "projects/project2/img/SITE%20ANALYIS.jpg",
+        "src": "projects/project2/img/SITE_ANALYIS.jpg",
         "caption": "SITE ANALYIS"
       },
       {
-        "src": "projects/project2/img/site%20plan.png",
-        "caption": "site plan"
+        "src": "projects/project2/img/SITE_PLAN.png",
+        "caption": "SITE PLAN"
       },
       {
-        "src": "projects/project2/img/STANDARDS%20SHEET.jpg",
+        "src": "projects/project2/img/STANDARDS_SHEET.jpg",
         "caption": "STANDARDS SHEET"
       }
     ],
     "downloads": [
       {
         "name": "ADMIN AND SWIMMING POOL BLOCK",
-        "file": "projects/project2/download/ADMIN%20AND%20SWIMMING%20POOL%20BLOCK.png",
+        "file": "projects/project2/download/ADMIN_AND_SWIMMING_POOL_BLOCK.png",
         "size": "PNG"
       },
       {
         "name": "CASE STUDY 1",
-        "file": "projects/project2/download/CASE%20STUDY%201.png",
+        "file": "projects/project2/download/CASE_STUDY_1.png",
         "size": "PNG"
       },
       {
         "name": "CASE STUDY 2",
-        "file": "projects/project2/download/CASE%20STUDY%202.png",
+        "file": "projects/project2/download/CASE_STUDY_2.png",
         "size": "PNG"
       },
       {
         "name": "CASE STUDY 3",
-        "file": "projects/project2/download/CASE%20STUDY%203.png",
+        "file": "projects/project2/download/CASE_STUDY_3.png",
         "size": "PNG"
       },
       {
@@ -279,42 +279,42 @@
       },
       {
         "name": "MAIN BUILDING BLOCK 1",
-        "file": "projects/project2/download/MAIN%20BUILDING%20BLOCK%201.png",
+        "file": "projects/project2/download/MAIN_BUILDING_BLOCK_1.png",
         "size": "PNG"
       },
       {
         "name": "MAIN BUILDING BLOCK 2",
-        "file": "projects/project2/download/MAIN%20BUILDING%20BLOCK%202.png",
+        "file": "projects/project2/download/MAIN_BUILDING_BLOCK_2.png",
         "size": "PNG"
       },
       {
-        "name": "Pneumatic Structure 2",
-        "file": "projects/project2/download/Pneumatic%20Structure%202.png",
+        "name": "PNEUMATIC STRUCTURE 2",
+        "file": "projects/project2/download/PNEUMATIC_STRUCTURE_2.png",
         "size": "PNG"
       },
       {
-        "name": "Pneumatic structure",
-        "file": "projects/project2/download/Pneumatic%20structure.png",
+        "name": "PNEUMATIC STRUCTURE",
+        "file": "projects/project2/download/PNEUMATIC_STRUCTURE.png",
         "size": "PNG"
       },
       {
         "name": "SHEET NO.7",
-        "file": "projects/project2/download/SHEET%20NO.7.png",
+        "file": "projects/project2/download/SHEET_NO.7.png",
         "size": "PNG"
       },
       {
         "name": "SITE ANALYIS",
-        "file": "projects/project2/download/SITE%20ANALYIS.png",
+        "file": "projects/project2/download/SITE_ANALYIS.png",
         "size": "PNG"
       },
       {
-        "name": "site plan",
-        "file": "projects/project2/download/site%20plan.png",
+        "name": "SITE PLAN",
+        "file": "projects/project2/download/SITE_PLAN.png",
         "size": "PNG"
       },
       {
         "name": "STANDARDS SHEET",
-        "file": "projects/project2/download/STANDARDS%20SHEET.png",
+        "file": "projects/project2/download/STANDARDS_SHEET.png",
         "size": "PNG"
       }
     ]
