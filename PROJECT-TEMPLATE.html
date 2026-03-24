@@ -1,0 +1,110 @@
+<!-- ============================================================
+   PROJECT CARD TEMPLATE
+   projects/PROJECT-TEMPLATE.html
+   
+   HOW TO ADD A NEW PROJECT:
+   1. Copy the <article> block below into index.html inside .works-grid
+   2. Add your project data object to the PROJECTS object in script.js
+   3. Place images in /images and link them (or use gradient placeholders)
+   4. Place PDF files in /files and update the downloads array
+   ============================================================ -->
+
+<!-- STEP 1: Add this card to index.html → .works-grid -->
+<article class="project-card reveal" data-project="05" onclick="openProject('myproject')">
+  <div class="card-image">
+    <!-- Option A: CSS gradient placeholder (no image needed) -->
+    <div class="card-img-inner" style="background: linear-gradient(135deg, #B0B8C0 0%, #6A7880 100%)"></div>
+
+    <!-- Option B: Real image (uncomment and update src) -->
+    <!-- <img class="card-img-inner" src="images/myproject-cover.jpg" alt="My Project" style="object-fit:cover;width:100%;height:100%"> -->
+
+    <div class="card-overlay">
+      <span class="card-view">View Project</span>
+    </div>
+    <div class="card-number">05</div>
+  </div>
+  <div class="card-info">
+    <h3 class="card-title">My Project Title</h3>
+    <p class="card-meta">Project Type · Year</p>
+    <p class="card-desc">A short one or two sentence description of the project. Keep it punchy and intriguing.</p>
+    <div class="card-tags">
+      <span>Tag One</span>
+      <span>Tag Two</span>
+      <span>Tag Three</span>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================
+   STEP 2: Add this data object to the PROJECTS = { ... } in script.js
+   ============================================================ -->
+<!--
+  myproject: {
+    title: 'My Project Title',
+    subtitle: 'Project Subtitle / Type',
+    year: '2026',
+    type: 'Project Category',
+    location: 'City, Country',
+    tools: 'Tool A · Tool B · Tool C',
+    area: '500 sqm',
+    heroGradient: 'linear-gradient(135deg, #B0B8C0 0%, #6A7880 100%)',
+    images: [
+      { gradient: 'linear-gradient(135deg, #B0B8C0 0%, #6A7880 100%)', caption: 'View caption 1' },
+      { gradient: 'linear-gradient(160deg, #C0C8D0 0%, #7A8890 100%)', caption: 'View caption 2' },
+      { gradient: 'linear-gradient(110deg, #A0A8B0 0%, #5A6870 100%)', caption: 'View caption 3' },
+    ],
+    description: [
+      'First paragraph of your project description. Set up the context and brief.',
+      'Second paragraph. Describe the design approach, key ideas, and strategies.',
+      'Third paragraph. Talk about material, construction, or outcomes.',
+    ],
+    details: [
+      'Site: [value]', 'Area: [value]', 'Structure: [value]',
+      'Materials: [value]', 'Client: [value]', 'Duration: [value]'
+    ],
+    downloads: [
+      { name: 'Design Drawings', size: 'PDF · 12.0 MB', file: 'files/myproject-drawings.pdf' },
+      { name: 'Portfolio Board', size: 'PDF · 8.0 MB',  file: 'files/myproject-board.pdf' },
+    ]
+  },
+-->
+
+
+<!-- ============================================================
+   FOLDER STRUCTURE REFERENCE
+   
+   portfolio/
+   ├── index.html          ← main page (edit directly)
+   ├── style.css           ← all styles (edit design tokens at top)
+   ├── script.js           ← all JS (edit PROJECTS object for content)
+   ├── projects/
+   │   └── PROJECT-TEMPLATE.html  ← this file
+   ├── images/
+   │   ├── portrait.jpg           ← your portrait for About section
+   │   ├── canopy-cover.jpg       ← project cover images
+   │   └── [project]-[view].jpg   ← gallery images
+   └── files/
+       ├── portfolio.pdf          ← main downloadable portfolio
+       ├── resume.pdf             ← CV download
+       ├── canopy-concept.pdf
+       ├── canopy-drawings.pdf
+       └── ...
+   ============================================================ -->
+
+
+<!-- ============================================================
+   COLOUR PALETTE — to change accent colour, edit in style.css:
+
+   :root {
+     --accent:       #B5603A;   /* terracotta — change this */
+     --accent-light: #D4896A;   /* lighter version */
+     --accent-muted: #8C4A2C;   /* darker version */
+   }
+
+   Other preset accent options:
+   Muted Gold:   --accent: #C9A96E;
+   Deep Blue:    --accent: #2B4C6F;
+   Sage Green:   --accent: #5E7A5A;
+   Dusty Rose:   --accent: #A06070;
+   ============================================================ -->

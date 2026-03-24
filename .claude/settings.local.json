@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd)",
+      "Bash(cd:*)",
+      "Bash(node -e \":*)",
+      "Bash(perl -i -pe 'BEGIN{undef $/;} s/\\\\$\\\\{project\\\\.downloads\\\\.map\\\\\\(d => \\\\`\\\\n<a href=\"\"\\\\$\\\\{d\\\\.file\\\\}\"\" class=\"\"contact-link\"\" download style=\"\"margin-bottom: 0\\\\.5rem;\"\">\\\\n<span class=\"\"link-label\"\" style=\"\"font-size: 0\\\\.9rem;\"\">\\\\$\\\\{d\\\\.name\\\\}<\\\\/span>\\\\n<span style=\"\"font-family: var\\\\\\(--font-mono\\\\\\); font-size: 0\\\\.65rem; color: var\\\\\\(--light-gray\\\\\\);\"\">\\\\$\\\\{d\\\\.size\\\\}<\\\\/span>\\\\n<\\\\/a>\\\\n\\\\`\\\\\\)\\\\.join\\\\\\(\\\\x27\\\\x27\\)\\\\}/<div class=\"\"downloads-grid\"\">\\\\n\\\\$\\\\{project.downloads.map\\(d => \\\\`\\\\n<a href=\"\"\\\\$\\\\{d.file\\\\}\"\" class=\"\"download-item\"\" download target=\"\"_blank\"\">\\\\n<span class=\"\"download-icon\"\">\\\\$\\\\{d.name.endsWith\\(\\\\x27.pdf\\\\x27\\) ? \\\\x27📄\\\\x27 : \\\\x27🖼️\\\\x27\\\\}<\\\\\\\\/span>\\\\n<span class=\"\"download-name\"\">\\\\$\\\\{d.name\\\\}<\\\\\\\\/span>\\\\n<\\\\/a>\\\\n\\\\`\\).join\\(\\\\x27\\\\x27\\)\\\\}\\\\n<\\\\\\\\/div>/gm' script.js)",
+      "Bash(node --check script.js)",
+      "Bash(node update-gallery.js)",
+      "Bash(Set-Content index.html \")",
+      "Bash(/tmp/update_html.mjs:*)",
+      "Bash(node /tmp/update_html.mjs)",
+      "Bash(/tmp/fix2.mjs:*)",
+      "Bash(node /tmp/fix2.mjs)",
+      "Bash(git checkout:*)",
+      "Bash(grep -n \"^};$\" script.js)",
+      "Bash(sed -i \"s|files/project1/WhatsApp Image 2026-03-16 at 6.11.59 PM.jpeg|files/project1/img/WhatsApp Image 2026-03-16 at 6.11.59 PM.jpeg|g\" script.js)",
+      "Bash(sed -i \"s|files/project2/SITE ANALYIS.png|files/project2 - pool/img/SITE ANALYIS.jpg|g\" script.js)"
+    ]
+  }
+}
