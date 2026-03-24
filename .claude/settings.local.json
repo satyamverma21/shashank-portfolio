@@ -16,7 +16,12 @@
       "Bash(grep -n \"^};$\" script.js)",
       "Bash(sed -i \"s|files/project1/WhatsApp Image 2026-03-16 at 6.11.59 PM.jpeg|files/project1/img/WhatsApp Image 2026-03-16 at 6.11.59 PM.jpeg|g\" script.js)",
       "Bash(sed -i \"s|files/project2/SITE ANALYIS.png|files/project2 - pool/img/SITE ANALYIS.jpg|g\" script.js)",
-      "Bash(git lfs:*)"
+      "Bash(git lfs:*)",
+      "Bash(for p:*)",
+      "Bash(do echo:*)",
+      "Read(//d/blacky/main/projects/**)",
+      "Bash(done)",
+      "Bash(node generate-projects.js)"
     ]
   }
 }
