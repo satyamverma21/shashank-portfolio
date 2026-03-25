@@ -195,7 +195,7 @@ function openProject(key) {
         <div class="gallery-item-corner gallery-item-corner--top"></div>
         <div class="gallery-item-corner gallery-item-corner--bottom"></div>
         <div class="gallery-item-image">
-          <img src="${img.src}" alt="${img.caption}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'padding:20px;color:var(--mid-gray);font-size:0.75rem;text-align:center;\\'>Image not found</div>'">
+          <img src="${img.src}" alt="${img.caption}" >
         </div>
         <div class="gallery-item-border"></div>
         <div class="gallery-info-bar">
