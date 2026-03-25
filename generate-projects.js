@@ -189,7 +189,7 @@ function generateProjectsManifest() {
     const gallery = images.map((img, i) => {
       const num = String(i + 1).padStart(2, '0');
       return {
-        src: `projects/${folder}/img/${encodeURIComponent(img)}`,
+        src: `./projects/${folder}/img/${encodeURIComponent(img)}`,
         caption: img.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ')
       };
     });
@@ -201,7 +201,7 @@ function generateProjectsManifest() {
       const name = file.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
       return {
         name,
-        file: `projects/${folder}/download/${encodeURIComponent(file)}`,
+        file: `./projects/${folder}/download/${encodeURIComponent(file)}`,
         size: sizeLabel
       };
     });
@@ -228,3 +228,4 @@ function generateProjectsManifest() {
 
 // Run
 generateProjectsManifest();
+console.log("Updated projects json")
