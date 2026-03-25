@@ -1,342 +1,115 @@
 /* ============================================================
-   Shashank Agarwal — Architecture Portfolio 2026
-   script.js — Refined Interactions
-   ============================================================ */
+ Shashank Agarwal — Architecture Portfolio 2026
+ script.js — Refined Interactions
+ ============================================================ */
 
 'use strict';
 
-/* ===================================================
-AUTO-GENERATE PROJECT DATA FROM FOLDER STRUCTURE
-====================================================== */
-/*
-   Note: Since browsers cannot scan server directories,
-   we use a manifest approach below that lists all files.
-   Update the manifest when adding/removing files.
-*/
+// FIX: Load projects.json via fetch() - works on GitHub Pages (HTTPS)
+// Falls back to embedded data for local file:// testing (browser security blocks fetch on file://)
+let PROJECTS = {};
 
-/* Image and PDF manifest for each project */
-const PROJECT_FILES = {
-  project1: {
-    imgFolder: 'files/project1/img',
-    pdfFolder: 'files/project1/pdf',
-    images: [
-      'WhatsApp Image 2026-03-16 at 6.11.59 PM.jpeg',
-      'SITE PLAN.jpg',
-      'FIRST FLOOR PLAN.jpg',
-      'SECOND FLOOR PLAN.jpg',
-      'FOUTH FLOOR PLAN.jpg',
-      'TERRACE FLOOR PLAN.jpg',
-      'ELEVATION.jpg',
-      'SECTION.jpg',
-      '9TH SEM INTRO ST-1 BY SA_page-0001.jpg',
-      '9TH SEM CS ST-2 BY SA.jpg',
-      '9TH SEM CS ST-3 BY SA.jpg',
-      '9TH SEM C0 ST-7 BY SA.jpg',
-      '9TH SEM LS ST-5 BY SA.jpg',
-      '9TH SEM SA ST-6 BY SA.jpg',
-      'st-2 (thrust area).jpg'
-    ],
-    pdfs: [
-      '9TH SEM INTRO ST-1 BY SA.pdf',
-      '9TH SEM CS ST-2 BY SA.pdf',
-      '9TH SEM CS ST-3 BY SA.pdf',
-      '9TH SEM C0 ST-7 BY SA.pdf',
-      '9TH SEM LS ST-5 BY SA.pdf',
-      '9TH SEM SA ST-6 BY SA.pdf',
-      'SITE PLAN.pdf',
-      'FIRST FLOOR PLAN.pdf',
-      'SECOND FLOOR PLAN.pdf',
-      'FOUTH FLOOR PLAN.pdf',
-      'TERRACE FLOOR PLAN.pdf',
-      'ELEVATION.pdf',
-      'SECTION.pdf',
-      'STRUCTURE DRAWING.pdf',
-      'st-2 (thrust area).pdf'
-    ]
-  },
-  'project2 - pool': {
-    imgFolder: 'files/project2 - pool/img',
-    pdfFolder: 'files/project2 - pool/pdf',
-    images: [
-      'SITE ANALYIS.jpg',
-      'CONCEPT.jpg',
-      'MAIN BUILDING BLOCK 1.jpg',
-      'MAIN BUILDING BLOCK 2.jpg',
-      'Pneumatic structure.jpg',
-      'Pneumatic Structure 2.jpg',
-      'ADMIN AND SWIMMING POOL BLOCK.jpg',
-      'CASE STUDY 1.jpg',
-      'CASE STUDY 2.jpg',
-      'CASE STUDY 3.jpg',
-      'SHEET NO.7.jpg',
-      'STANDARDS SHEET.jpg',
-      'site plan.png'
-    ],
-    pdfs: [
-      'ADMIN AND SWIMMING POOL BLOCK.png',
-      'CASE STUDY 1.png',
-      'CASE STUDY 2.png',
-      'CASE STUDY 3.png',
-      'CONCEPT.png',
-      'MAIN BUILDING BLOCK 1.png',
-      'MAIN BUILDING BLOCK 2.png',
-      'Pneumatic Structure 2.png',
-      'Pneumatic structure.png',
-      'SHEET NO.7.png',
-      'SITE ANALYIS.png',
-      'STANDARDS SHEET.png',
-      'site plan.png'
-    ]
-  },
-  project2: {
-    imgFolder: 'files/project2 - pool/img',
-    pdfFolder: 'files/project2 - pool/pdf',
-    images: [
-      'SITE ANALYIS.jpg',
-      'CONCEPT.jpg',
-      'MAIN BUILDING BLOCK 1.jpg',
-      'MAIN BUILDING BLOCK 2.jpg',
-      'Pneumatic structure.jpg',
-      'Pneumatic Structure 2.jpg',
-      'ADMIN AND SWIMMING POOL BLOCK.jpg',
-      'CASE STUDY 1.jpg',
-      'CASE STUDY 2.jpg',
-      'CASE STUDY 3.jpg',
-      'SHEET NO.7.jpg',
-      'STANDARDS SHEET.jpg',
-      'site plan.png'
-    ],
-    pdfs: [
-      'ADMIN AND SWIMMING POOL BLOCK.png',
-      'CASE STUDY 1.png',
-      'CASE STUDY 2.png',
-      'CASE STUDY 3.png',
-      'CONCEPT.png',
-      'MAIN BUILDING BLOCK 1.png',
-      'MAIN BUILDING BLOCK 2.png',
-      'Pneumatic Structure 2.png',
-      'Pneumatic structure.png',
-      'SHEET NO.7.png',
-      'SITE ANALYIS.png',
-      'STANDARDS SHEET.png',
-      'site plan.png'
-    ]
-  },
-  project3: {
-    imgFolder: 'files/project3',
-    pdfFolder: null,
-    images: [
-      '0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg',
-      '7.png', '12.png', '13.png', '14.png', '15.png', '16.png',
-      '17.png', '18.png', '19.png', '20.png', '21.png', '22.png',
-      '23.png', '24.png', '25.png', '26.png', '29.png', '30.png',
-      '31.png', '32.png', '33.png', '34.png', '37.png', '38.png',
-      '39.png', '40.png', '41.png'
-    ],
-    pdfs: []
-  },
-  project4: {
-    imgFolder: 'files/project4',
-    pdfFolder: null,
-    images: [
-      '0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg',
-      '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg',
-      '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg',
-      '18.jpg', '19.jpg', '20.jpg', '21.jpg', '22.jpg', '23.jpg',
-      '24.jpg'
-    ],
-    pdfs: []
-  },
-  project5: {
-    imgFolder: 'files/project5',
-    pdfFolder: null,
-    images: [
-      '9.jpg', '18.jpg', '19.jpg', '31.jpg', '32.jpg', '33.jpg'
-    ],
-    pdfs: []
+// Embedded fallback data for local testing when fetch fails (file:// protocol)
+const PROJECTS_FALLBACK = {"project1":{"title":"9th Semester Academic Project","subtitle":"Residential Design","year":"2026","type":"Residential","location":"India","tools":"AutoCAD · SketchUp · Lumion","area":"Multi-storey","category":"residential","heroGradient":"linear-gradient(135deg, #B8A88C 0%, #7A6A58 100%)","description":["A comprehensive residential design project from 9th Semester.","Complete architectural documentation from site plan to structural drawings."],"details":[{"label":"Type","value":"Residential"},{"label":"Floors","value":"Multi-storey"},{"label":"Semester","value":"9th"}],"heroSrc":"projects/project1/img/9TH_SEM_C0_ST-7_BY_SA_PAGE-0001.jpg","images":[{"src":"projects/project1/img/9TH_SEM_C0_ST-7_BY_SA_PAGE-0001.jpg","caption":"9TH SEM C0 ST 7 BY SA PAGE 0001"},{"src":"projects/project1/img/9TH_SEM_CS_ST-2_BY_SA.jpg","caption":"9TH SEM CS ST 2 BY SA"},{"src":"projects/project1/img/9TH_SEM_CS_ST-3_BY_SA.jpg","caption":"9TH SEM CS ST 3 BY SA"},{"src":"projects/project1/img/9TH_SEM_INTRO_ST-1_BY_SA.jpg","caption":"9TH SEM INTRO ST 1 BY SA"},{"src":"projects/project1/img/9TH_SEM_LS_ST-5_BY_SA.jpg","caption":"9TH SEM LS ST 5 BY SA"},{"src":"projects/project1/img/9TH_SEM_SA_ST-6_BY_SA.jpg","caption":"9TH SEM SA ST 6 BY SA"},{"src":"projects/project1/img/ELEVATION.jpg","caption":"ELEVATION"},{"src":"projects/project1/img/FIRST_FLOOR_PLAN.jpg","caption":"FIRST FLOOR PLAN"},{"src":"projects/project1/img/FOUTH_FLOOR_PLAN.jpg","caption":"FOUTH FLOOR PLAN"},{"src":"projects/project1/img/SECOND_FLOOR_PLAN.jpg","caption":"SECOND FLOOR PLAN"},{"src":"projects/project1/img/SECTION.jpg","caption":"SECTION"},{"src":"projects/project1/img/SITE_PLAN.jpg","caption":"SITE PLAN"},{"src":"projects/project1/img/ST-2_(THRUST_AREA).jpg","caption":"ST 2 (THRUST AREA)"},{"src":"projects/project1/img/TERRACE_FLOOR_PLAN.jpg","caption":"TERRACE FLOOR PLAN"},{"src":"projects/project1/img/WHATSAPP_IMAGE_2026-03-16_AT_6.11.59_PM.jpeg","caption":"WHATSAPP IMAGE 2026 03 16 AT 6.11.59 PM"}],"downloads":[{"name":"9TH SEM C0 ST 7 BY SA","file":"projects/project1/download/9TH_SEM_C0_ST-7_BY_SA.pdf","size":"PDF"},{"name":"9TH SEM CS ST 2 BY SA","file":"projects/project1/download/9TH_SEM_CS_ST-2_BY_SA.pdf","size":"PDF"},{"name":"9TH SEM CS ST 3 BY SA","file":"projects/project1/download/9TH_SEM_CS_ST-3_BY_SA.pdf","size":"PDF"},{"name":"9TH SEM INTRO ST 1 BY SA","file":"projects/project1/download/9TH_SEM_INTRO_ST-1_BY_SA.pdf","size":"PDF"},{"name":"9TH SEM LS ST 5 BY SA","file":"projects/project1/download/9TH_SEM_LS_ST-5_BY_SA.pdf","size":"PDF"},{"name":"9TH SEM SA ST 6 BY SA","file":"projects/project1/download/9TH_SEM_SA_ST-6_BY_SA.pdf","size":"PDF"},{"name":"ELEVATION","file":"projects/project1/download/ELEVATION.pdf","size":"PDF"},{"name":"FIRST FLOOR PLAN","file":"projects/project1/download/FIRST_FLOOR_PLAN.pdf","size":"PDF"},{"name":"FOUTH FLOOR PLAN","file":"projects/project1/download/FOUTH_FLOOR_PLAN.pdf","size":"PDF"},{"name":"SECOND FLOOR PLAN","file":"projects/project1/download/SECOND_FLOOR_PLAN.pdf","size":"PDF"},{"name":"SECTION","file":"projects/project1/download/SECTION.pdf","size":"PDF"},{"name":"SITE PLAN","file":"projects/project1/download/SITE_PLAN.pdf","size":"PDF"},{"name":"ST 2 (THRUST AREA)","file":"projects/project1/download/ST-2_(THRUST_AREA).pdf","size":"PDF"},{"name":"STRUCTURE DRAWING","file":"projects/project1/download/STRUCTURE_DRAWING.pdf","size":"PDF"},{"name":"TERRACE FLOOR PLAN","file":"projects/project1/download/TERRACE_FLOOR_PLAN.pdf","size":"PDF"}]},"project2":{"title":"Sports Complex","subtitle":"Academic Project","year":"2024","type":"Sports Facility","location":"India","tools":"AutoCAD · SketchUp · Lumion","area":"Masterplan","category":"public","heroGradient":"linear-gradient(135deg, #1b2838 0%, #2a475e 100%)","description":["Sports Complex with pneumatic form structures.","Masterplan with specialized sporting facilities."],"details":[{"label":"Type","value":"Sports Complex"},{"label":"Feature","value":"Pneumatic Structures"},{"label":"Year","value":"2024"}],"heroSrc":"projects/project2/img/ADMIN_AND_SWIMMING_POOL_BLOCK.jpg","images":[{"src":"projects/project2/img/ADMIN_AND_SWIMMING_POOL_BLOCK.jpg","caption":"ADMIN AND SWIMMING POOL BLOCK"},{"src":"projects/project2/img/CASE_STUDY_1.jpg","caption":"CASE STUDY 1"},{"src":"projects/project2/img/CASE_STUDY_2.jpg","caption":"CASE STUDY 2"},{"src":"projects/project2/img/CASE_STUDY_3.jpg","caption":"CASE STUDY 3"},{"src":"projects/project2/img/CONCEPT.jpg","caption":"CONCEPT"},{"src":"projects/project2/img/MAIN_BUILDING_BLOCK_1.jpg","caption":"MAIN BUILDING BLOCK 1"},{"src":"projects/project2/img/MAIN_BUILDING_BLOCK_2.jpg","caption":"MAIN BUILDING BLOCK 2"},{"src":"projects/project2/img/PNEUMATIC_STRUCTURE_2.jpg","caption":"PNEUMATIC STRUCTURE 2"},{"src":"projects/project2/img/PNEUMATIC_STRUCTURE.jpg","caption":"PNEUMATIC STRUCTURE"},{"src":"projects/project2/img/SHEET_NO.7.jpg","caption":"SHEET NO.7"},{"src":"projects/project2/img/SITE_ANALYIS.jpg","caption":"SITE ANALYIS"},{"src":"projects/project2/img/SITE_PLAN.png","caption":"SITE PLAN"},{"src":"projects/project2/img/STANDARDS_SHEET.jpg","caption":"STANDARDS SHEET"}],"downloads":[{"name":"ADMIN AND SWIMMING POOL BLOCK","file":"projects/project2/download/ADMIN_AND_SWIMMING_POOL_BLOCK.png","size":"PNG"},{"name":"CASE STUDY 1","file":"projects/project2/download/CASE_STUDY_1.png","size":"PNG"},{"name":"CASE STUDY 2","file":"projects/project2/download/CASE_STUDY_2.png","size":"PNG"},{"name":"CASE STUDY 3","file":"projects/project2/download/CASE_STUDY_3.png","size":"PNG"},{"name":"CONCEPT","file":"projects/project2/download/CONCEPT.png","size":"PNG"},{"name":"MAIN BUILDING BLOCK 1","file":"projects/project2/download/MAIN_BUILDING_BLOCK_1.png","size":"PNG"},{"name":"MAIN BUILDING BLOCK 2","file":"projects/project2/download/MAIN_BUILDING_BLOCK_2.png","size":"PNG"},{"name":"PNEUMATIC STRUCTURE 2","file":"projects/project2/download/Pneumatic_Structure_2.png","size":"PNG"},{"name":"PNEUMATIC STRUCTURE","file":"projects/project2/download/Pneumatic_structure.png","size":"PNG"},{"name":"SHEET NO.7","file":"projects/project2/download/SHEET_NO.7.png","size":"PNG"},{"name":"SITE ANALYIS","file":"projects/project2/download/SITE_ANALYIS.png","size":"PNG"},{"name":"SITE PLAN","file":"projects/project2/download/site_plan.png","size":"PNG"},{"name":"STANDARDS SHEET","file":"projects/project2/download/STANDARDS_SHEET.png","size":"PNG"}]},"project3":{"title":"Academic Portfolio","subtitle":"Design Studies Collection","year":"2024-2025","type":"Academic Work","location":"India","tools":"AutoCAD · SketchUp · V-Ray","area":"Various","category":"public","heroGradient":"linear-gradient(135deg, #2D3748 0%, #4A5568 100%)","description":["A comprehensive collection of academic work spanning multiple semesters.","Projects range from conceptual explorations to detailed architectural drawings."],"details":[{"label":"Type","value":"Academic Collection"},{"label":"Span","value":"Multiple Semesters"},{"label":"Focus","value":"Design Development"}],"heroSrc":"projects/project3/img/0.jpg","images":[{"src":"projects/project3/img/0.jpg","caption":"0"},{"src":"projects/project3/img/1.jpg","caption":"1"},{"src":"projects/project3/img/2.jpg","caption":"2"},{"src":"projects/project3/img/3.jpg","caption":"3"},{"src":"projects/project3/img/4.jpg","caption":"4"},{"src":"projects/project3/img/5.jpg","caption":"5"},{"src":"projects/project3/img/6.jpg","caption":"6"},{"src":"projects/project3/img/7.png","caption":"7"},{"src":"projects/project3/img/12.png","caption":"12"},{"src":"projects/project3/img/13.png","caption":"13"},{"src":"projects/project3/img/14.png","caption":"14"},{"src":"projects/project3/img/15.png","caption":"15"},{"src":"projects/project3/img/16.png","caption":"16"},{"src":"projects/project3/img/17.png","caption":"17"},{"src":"projects/project3/img/18.png","caption":"18"},{"src":"projects/project3/img/19.png","caption":"19"},{"src":"projects/project3/img/20.png","caption":"20"},{"src":"projects/project3/img/21.png","caption":"21"},{"src":"projects/project3/img/22.png","caption":"22"},{"src":"projects/project3/img/23.png","caption":"23"},{"src":"projects/project3/img/24.png","caption":"24"},{"src":"projects/project3/img/25.png","caption":"25"},{"src":"projects/project3/img/26.png","caption":"26"},{"src":"projects/project3/img/29.png","caption":"29"},{"src":"projects/project3/img/30.png","caption":"30"},{"src":"projects/project3/img/31.png","caption":"31"},{"src":"projects/project3/img/32.png","caption":"32"},{"src":"projects/project3/img/33.png","caption":"33"},{"src":"projects/project3/img/34.png","caption":"34"},{"src":"projects/project3/img/37.png","caption":"37"},{"src":"projects/project3/img/38.png","caption":"38"},{"src":"projects/project3/img/39.png","caption":"39"},{"src":"projects/project3/img/40.png","caption":"40"},{"src":"projects/project3/img/41.png","caption":"41"}],"downloads":[]},"project4":{"title":"Pool Design Project","subtitle":"Leisure Facility","year":"2024","type":"Leisure Architecture","location":"India","tools":"AutoCAD · SketchUp · Lumion","area":"Leisure Facility","category":"public","heroGradient":"linear-gradient(135deg, #1E3A5F 0%, #2C5282 100%)","description":["Leisure facility designed around a central swimming pool.","Addressing circulation patterns, safety protocols, and user experience."],"details":[{"label":"Type","value":"Leisure Facility"},{"label":"Feature","value":"Swimming Pool"},{"label":"Year","value":"2024"}],"heroSrc":"projects/project4/img/0.jpg","images":[{"src":"projects/project4/img/0.jpg","caption":"0"},{"src":"projects/project4/img/1.jpg","caption":"1"},{"src":"projects/project4/img/2.jpg","caption":"2"},{"src":"projects/project4/img/3.jpg","caption":"3"},{"src":"projects/project4/img/4.jpg","caption":"4"},{"src":"projects/project4/img/5.jpg","caption":"5"},{"src":"projects/project4/img/6.jpg","caption":"6"},{"src":"projects/project4/img/7.jpg","caption":"7"},{"src":"projects/project4/img/8.jpg","caption":"8"},{"src":"projects/project4/img/9.jpg","caption":"9"},{"src":"projects/project4/img/10.jpg","caption":"10"},{"src":"projects/project4/img/11.jpg","caption":"11"},{"src":"projects/project4/img/12.jpg","caption":"12"},{"src":"projects/project4/img/13.jpg","caption":"13"},{"src":"projects/project4/img/14.jpg","caption":"14"},{"src":"projects/project4/img/15.jpg","caption":"15"},{"src":"projects/project4/img/16.jpg","caption":"16"},{"src":"projects/project4/img/17.jpg","caption":"17"},{"src":"projects/project4/img/18.jpg","caption":"18"},{"src":"projects/project4/img/19.jpg","caption":"19"},{"src":"projects/project4/img/20.jpg","caption":"20"},{"src":"projects/project4/img/21.jpg","caption":"21"},{"src":"projects/project4/img/22.jpg","caption":"22"},{"src":"projects/project4/img/23.jpg","caption":"23"},{"src":"projects/project4/img/24.jpg","caption":"24"}],"downloads":[]},"project5":{"title":"6th Semester Portfolio","subtitle":"Academic Work","year":"2024","type":"Academic Portfolio","location":"India","tools":"AutoCAD · SketchUp · Photoshop","area":"Various","category":"public","heroGradient":"linear-gradient(135deg, #744210 0%, #B7791F 100%)","description":["Academic portfolio demonstrating spatial thinking and architectural representation.","Collection includes sketches, technical drawings, and digital renderings."],"details":[{"label":"Type","value":"Academic Portfolio"},{"label":"Semester","value":"6th"},{"label":"Focus","value":"Spatial Design"}],"heroSrc":"projects/project5/img/9.jpg","images":[{"src":"projects/project5/img/9.jpg","caption":"9"},{"src":"projects/project5/img/18.jpg","caption":"18"},{"src":"projects/project5/img/19.jpg","caption":"19"},{"src":"projects/project5/img/31.jpg","caption":"31"},{"src":"projects/project5/img/32.jpg","caption":"32"},{"src":"projects/project5/img/33.jpg","caption":"33"}],"downloads":[{"name":"9","file":"projects/project5/download/9.jpg","size":"JPG"},{"name":"18","file":"projects/project5/download/18.jpg","size":"JPG"},{"name":"19","file":"projects/project5/download/19.jpg","size":"JPG"},{"name":"31","file":"projects/project5/download/31.jpg","size":"JPG"},{"name":"32","file":"projects/project5/download/32.jpg","size":"JPG"},{"name":"33","file":"projects/project5/download/33.jpg","size":"JPG"}]}};
+
+// const PROJECTS_FALLBACK  = require("./projects.json")
+
+async function loadProjects() {
+  try {
+    // FIX: Cache-bust with timestamp to avoid serving stale projects.json
+		const response = await fetch('projects.json?v=' + Date.now());
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    PROJECTS = await response.json();
+    initDynamicProjects();
+  } catch (err) {
+    // FIX: Fall back to embedded data when fetch fails (e.g., local file:// testing)
+    // On GitHub Pages, fetch succeeds and fallback is not used
+    console.warn('fetch() failed, using fallback data:', err.message);
+    PROJECTS = PROJECTS_FALLBACK;
+    initDynamicProjects();
   }
-};
+}
 
+// Dynamically render project cards using loaded data
+function initDynamicProjects() {
+  const showcase = document.getElementById('projectsShowcase');
+  if (!showcase) return;
 
-/* ===================================================
-   PROJECT DATA — Base templates, will be merged with PROJECT_FILES
-   =================================================== */
-const PROJECTS = {
-  project1: {
-    title: '9th Semester Academic Project',
-    subtitle: 'Residential Design',
-    year: '2026',
-    type: 'Residential',
-    location: 'India',
-    tools: 'AutoCAD · SketchUp · Lumion',
-    area: 'Multi-storey',
-    category: 'residential',
-    heroSrc: 'files/project1/img/WhatsApp Image 2026-03-16 at 6.11.59 PM.jpeg',
-    heroGradient: 'linear-gradient(135deg, #B8A88C 0%, #7A6A58 100%)',
-    description: [
-      'A comprehensive residential design project from 9th Semester.',
-      'Complete architectural documentation from site plan to structural drawings.'
-    ],
-    details: [
-      { label: 'Type', value: 'Residential' },
-      { label: 'Floors', value: 'Multi-storey' },
-      { label: 'Semester', value: '9th' }
-    ],
-    images: [],
-    downloads: []
-  },
-  project2: {
-    title: 'Sports Complex',
-    subtitle: 'Academic Project',
-    year: '2024',
-    type: 'Sports Facility',
-    location: 'India',
-    tools: 'AutoCAD · SketchUp · Lumion',
-    area: 'Masterplan',
-    category: 'public',
-    heroSrc: 'files/project2 - pool/img/SITE ANALYIS.jpg',
-    heroGradient: 'linear-gradient(135deg, #1b2838 0%, #2a475e 100%)',
-    description: [
-      'Sports Complex with pneumatic form structures.',
-      'Masterplan with specialized sporting facilities.'
-    ],
-    details: [
-      { label: 'Type', value: 'Sports Complex' },
-      { label: 'Feature', value: 'Pneumatic Structures' },
-      { label: 'Year', value: '2024' }
-    ],
-    images: [],
-    downloads: []
-  },
-  project3: {
-    title: 'Academic Portfolio',
-    subtitle: 'Design Studies Collection',
-    year: '2024-2025',
-    type: 'Academic Work',
-    location: 'India',
-    tools: 'AutoCAD · SketchUp · V-Ray',
-    area: 'Various',
-    category: 'public',
-    heroSrc: 'files/project3/0.jpg',
-    heroGradient: 'linear-gradient(135deg, #2D3748 0%, #4A5568 100%)',
-    description: [
-      'A comprehensive collection of academic work spanning multiple semesters, showcasing progressive development of design thinking and technical skills.',
-      'Projects range from conceptual explorations to detailed architectural drawings, demonstrating growth in spatial understanding and representation techniques.'
-    ],
-    details: [
-      { label: 'Type', value: 'Academic Collection' },
-      { label: 'Span', value: 'Multiple Semesters' },
-      { label: 'Focus', value: 'Design Development' }
-    ],
-    images: [],
-    downloads: []
-  },
-  project4: {
-    title: 'Pool Design Project',
-    subtitle: 'Leisure Facility',
-    year: '2024',
-    type: 'Leisure Architecture',
-    location: 'India',
-    tools: 'AutoCAD · SketchUp · Lumion',
-    area: 'Leisure Facility',
-    category: 'public',
-    heroSrc: 'files/project4/0.jpg',
-    heroGradient: 'linear-gradient(135deg, #1E3A5F 0%, #2C5282 100%)',
-    description: [
-      'Leisure facility designed around a central swimming pool, addressing circulation patterns, safety protocols, and user experience in aquatic architecture.',
-      'The design integrates pool amenities with relaxation zones, creating a cohesive environment that prioritizes both functionality and comfort.'
-    ],
-    details: [
-      { label: 'Type', value: 'Leisure Facility' },
-      { label: 'Feature', value: 'Swimming Pool' },
-      { label: 'Year', value: '2024' }
-    ],
-    images: [],
-    downloads: []
-  },
-  project5: {
-    title: '6th Semester Portfolio',
-    subtitle: 'Academic Work',
-    year: '2024',
-    type: 'Academic Portfolio',
-    location: 'India',
-    tools: 'AutoCAD · SketchUp · Photoshop',
-    area: 'Various',
-    category: 'public',
-    heroSrc: 'files/project5/9.jpg',
-    heroGradient: 'linear-gradient(135deg, #744210 0%, #B7791F 100%)',
-    description: [
-      '6th semester academic portfolio demonstrating spatial thinking, architectural representation, and problem-solving skills through various design exercises.',
-      'Collection includes hand-drawn sketches, technical drawings, and digital renderings that showcase the progression of architectural understanding.'
-    ],
-    details: [
-      { label: 'Type', value: 'Academic Portfolio' },
-      { label: 'Semester', value: '6th' },
-      { label: 'Focus', value: 'Spatial Design' }
-    ],
-    images: [],
-    downloads: []
+  const projectKeys = Object.keys(PROJECTS);
+  const projectCount = projectKeys.length;
+
+  // Update the intro text to show actual project count
+  const introText = document.querySelector('.projects-intro');
+  if (introText) {
+    const countText = projectCount === 1 ? 'one project' :
+      projectCount === 2 ? 'two projects' :
+      projectCount === 3 ? 'three projects' :
+      projectCount === 4 ? 'four projects' :
+      `${projectCount} projects`;
+    introText.textContent = `${countText} spanning residential design, public architecture, and academic exploration — each a conversation between site, structure, and intention.`;
   }
-};
 
-/* ===================================================
-   MERGE PROJECT_FILES INTO PROJECTS
-   =================================================== */
-(function mergeProjectFiles() {
-  const fileKeyMapping = {
-    'project1': 'project1',
-    'project2 - pool': 'project2',
-    'project2': 'project2',
-    'project3': 'project3',
-    'project4': 'project4',
-    'project5': 'project5'
+  showcase.innerHTML = projectKeys.map((key, index) => {
+    const proj = PROJECTS[key];
+    const num = String(index + 1).padStart(2, '0');
+    const stagger = index + 1;
+    const typeTag = proj.type || 'Project';
+    const yearTag = proj.year || '';
+
+    return `
+  <article class="project-module reveal stagger-${stagger}" onclick="openProject('${key}')">
+    <div class="project-module-content">
+      <div class="project-number">${num}</div>
+      <div class="project-details">
+        <h3 class="project-name">${proj.title || key}</h3>
+        <p class="project-desc">${proj.description ? proj.description[0] : 'Project description.'}</p>
+        <div class="project-tags">
+          <span>${typeTag}</span>
+          ${yearTag ? `<span>${yearTag}</span>` : ''}
+        </div>
+      </div>
+      <div class="project-arrow">↗</div>
+    </div>
+    <div class="project-module-image">
+      ${proj.heroSrc ? `<img src="${proj.heroSrc}" alt="${proj.title}" onerror="this.parentElement.querySelector('.module-image-overlay').style.background='${proj.heroGradient || '#666'}'">` : ''}
+      <div class="module-image-overlay"></div>
+    </div>
+  </article>
+  `;
+  }).join('');
+
+  initRevealDynamic();
+  console.log(`Loaded ${projectCount} projects from projects.json`);
+}
+
+function initRevealDynamic() {
+  const observerOptions = {
+    threshold: 0.12,
+    rootMargin: '0px 0px -60px 0px'
   };
 
-  Object.keys(fileKeyMapping).forEach(fileKey => {
-    const projectKey = fileKeyMapping[fileKey];
-    const fileData = PROJECT_FILES[fileKey];
-    const proj = PROJECTS[projectKey];
-    
-    if (fileData && proj) {
-      // Map Images for Gallery
-      if (fileData.images && fileData.images.length > 0) {
-        proj.images = fileData.images.map(imgName => {
-          let src = '';
-          if (fileData.imgFolder) {
-            src = `${fileData.imgFolder}/${imgName}`;
-          } else {
-            src = `files/${fileKey}/${imgName}`;
-          }
-          let caption = imgName.replace(/\.[^/.]+$/, ""); // Remove file extension for caption
-          return { src, caption };
-        });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
-      
-      // Map PDFs/Files for Downloads
-      if (fileData.pdfs && fileData.pdfs.length > 0) {
-        proj.downloads = fileData.pdfs.map(pdfName => {
-          // Fallback to imgFolder or project folder if pdfFolder isn't explicitly set
-          let folder = fileData.pdfFolder || (fileData.imgFolder && !fileData.imgFolder.endsWith('/img') ? fileData.imgFolder : `files/${fileKey}`);
-          return {
-            name: pdfName.replace(/\.[^/.]+$/, ""),
-            file: `${folder}/${pdfName}`,
-            size: pdfName.split('.').pop().toUpperCase()
-          };
-        });
-      }
-    }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('#projectsShowcase .reveal').forEach(el => {
+    observer.observe(el);
   });
-})();
+}
 
 /* ===================================================
-   NAVIGATION
-   =================================================== */
+ NAVIGATION
+ =================================================== */
 (function initNav() {
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
-  // Scroll behavior
   let lastScroll = 0;
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
@@ -344,13 +117,11 @@ const PROJECTS = {
     lastScroll = currentScroll;
   }, { passive: true });
 
-  // Mobile toggle
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('mobile-open');
     });
 
-    // Close mobile nav on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('mobile-open');
@@ -360,8 +131,8 @@ const PROJECTS = {
 })();
 
 /* ===================================================
-   THEME TOGGLE
-   =================================================== */
+ THEME TOGGLE
+ =================================================== */
 (function initTheme() {
   const toggle = document.getElementById('themeToggle');
   if (!toggle) return;
@@ -381,8 +152,8 @@ const PROJECTS = {
 })();
 
 /* ===================================================
-   SCROLL REVEAL — Intersection Observer
-   =================================================== */
+ SCROLL REVEAL — Intersection Observer
+ =================================================== */
 (function initReveal() {
   const observerOptions = {
     threshold: 0.12,
@@ -404,38 +175,8 @@ const PROJECTS = {
 })();
 
 /* ===================================================
-   PROJECT FILTER
-   =================================================== */
-(function initFilter() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-
-      // Update active button
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Filter cards
-      projectCards.forEach(card => {
-        const category = card.dataset.category;
-        if (filter === 'all' || category === filter) {
-          card.style.display = '';
-          setTimeout(() => card.classList.add('visible'), 50);
-        } else {
-          card.style.display = 'none';
-          card.classList.remove('visible');
-        }
-      });
-    });
-  });
-})();
-
-/* ===================================================
-   PROJECT DETAIL OVERLAY
-   =================================================== */
+ PROJECT DETAIL OVERLAY
+ =================================================== */
 function openProject(key) {
   const project = PROJECTS[key];
   if (!project) return;
@@ -443,97 +184,83 @@ function openProject(key) {
   const overlay = document.getElementById('projectDetail');
   const content = document.getElementById('detailContent');
 
-  // Build gallery with architectural sheet design
-  const galleryItems = project.images.map((img, i) => {
+  // Build gallery - paths in JSON are already relative to index.html
+  const galleryItems = (project.images || []).map((img, i) => {
     const sheetNum = String(i + 1).padStart(2, '0');
+    debugger
     if (img.src) {
+      console.log("debug [image]: "+img.src)
       return `
-        <div class="gallery-item" onclick="openLightbox(${i}, '${key}')">
-          <div class="gallery-item-corner gallery-item-corner--top"></div>
-          <div class="gallery-item-corner gallery-item-corner--bottom"></div>
-          <div class="gallery-item-image">
-            <img src="${img.src}" alt="${img.caption}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'padding:20px;color:var(--mid-gray);font-size:0.75rem;text-align:center;\'>Image not found</div>'">
-          </div>
-          <div class="gallery-item-border"></div>
-          <div class="gallery-info-bar">
-            <div class="gallery-sheet-number">Sheet ${sheetNum}</div>
-            <div class="gallery-caption">${img.caption}</div>
-          </div>
-          <div class="gallery-scale">1:1</div>
-        </div>
-      `;
-    }
-    return `
       <div class="gallery-item" onclick="openLightbox(${i}, '${key}')">
         <div class="gallery-item-corner gallery-item-corner--top"></div>
         <div class="gallery-item-corner gallery-item-corner--bottom"></div>
         <div class="gallery-item-image">
-          <div class="gallery-placeholder" style="background: ${img.gradient}; width: 100%; height: 100%;"></div>
+          <img src="${img.src}" alt="${img.caption}" >
         </div>
         <div class="gallery-item-border"></div>
         <div class="gallery-info-bar">
           <div class="gallery-sheet-number">Sheet ${sheetNum}</div>
           <div class="gallery-caption">${img.caption}</div>
         </div>
+        <div class="gallery-scale">1:1</div>
       </div>
     `;
+    }
+    return '';
   }).join('');
 
-  // Build downloads with proper grid styling
-  const downloadsHtml = project.downloads?.length ? `
+  const downloadsHtml = (project.downloads && project.downloads.length) ? `
     <div class="proj-downloads">
       <div class="gallery-title">Downloads</div>
       <div class="downloads-grid">
         ${project.downloads.map(d => `
-          <a href="${d.file}" class="download-item" download>
-            <span class="download-icon">↓</span>
-            <span class="download-name">${d.name}</span>
-            <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--light-gray); margin-left: auto;">${d.size}</span>
-          </a>
-        `).join('')}
+        <a href="${d.file}" class="download-item" download>
+          <span class="download-icon">↓</span>
+          <span class="download-name">${d.name}</span>
+          <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--light-gray); margin-left: auto;">${d.size}</span>
+        </a>
+      `).join('')}
       </div>
     </div>
   ` : '';
 
-  // Build specs
-  const specsHtml = project.details.map(d => `
+  const specsHtml = (project.details || []).map(d => `
     <li>
       <span>${d.label}</span>
       <span>${d.value}</span>
     </li>
   `).join('');
 
-  // Hero content
   const heroHtml = project.heroSrc
     ? `<div class="project-detail-hero">
         <img src="${project.heroSrc}" alt="${project.title}" onerror="this.style.display='none'; this.parentElement.style.background='${project.heroGradient}'">
-       </div>`
-    : `<div class="project-detail-hero" style="background: ${project.heroGradient}"></div>`;
+      </div>`
+    : `<div class="project-detail-hero" style="background: ${project.heroGradient || '#666'}"></div>`;
 
   content.innerHTML = `
     ${heroHtml}
     <div class="project-detail-meta">
       <dl class="meta-item">
         <dt>Year</dt>
-        <dd>${project.year}</dd>
+        <dd>${project.year || 'N/A'}</dd>
       </dl>
       <dl class="meta-item">
         <dt>Type</dt>
-        <dd>${project.type}</dd>
+        <dd>${project.type || 'Project'}</dd>
       </dl>
       <dl class="meta-item">
         <dt>Location</dt>
-        <dd>${project.location}</dd>
+        <dd>${project.location || 'India'}</dd>
       </dl>
       <dl class="meta-item">
         <dt>Area</dt>
-        <dd>${project.area}</dd>
+        <dd>${project.area || 'Various'}</dd>
       </dl>
     </div>
     <div class="project-detail-body">
       <div class="project-description">
-        <h2>${project.title}<br><span style="font-style: italic; color: var(--accent);">${project.subtitle}</span></h2>
-        ${project.description.map(p => `<p>${p}</p>`).join('')}
+        <h2>${project.title || key}<br><span style="font-style: italic; color: var(--accent);">${project.subtitle || ''}</span></h2>
+        ${(project.description || []).map(p => `<p>${p}</p>`).join('')}
       </div>
       <div class="project-specs">
         <h4>Project Details</h4>
@@ -559,7 +286,6 @@ function closeProject() {
 }
 
 document.getElementById('detailClose')?.addEventListener('click', closeProject);
-
 document.getElementById('projectDetail')?.addEventListener('click', (e) => {
   if (e.target === e.currentTarget) closeProject();
 });
@@ -572,19 +298,17 @@ document.addEventListener('keydown', (e) => {
 });
 
 /* ===================================================
-   LIGHTBOX
-   =================================================== */
+ LIGHTBOX
+ =================================================== */
 let currentLightboxImages = [];
 let currentLightboxIndex = 0;
-let currentProjectKey = '';
 
 function openLightbox(index, key) {
   const project = PROJECTS[key];
   if (!project) return;
 
-  currentLightboxImages = project.images;
+  currentLightboxImages = project.images || [];
   currentLightboxIndex = index;
-  currentProjectKey = key;
 
   updateLightbox();
   document.getElementById('lightbox').classList.add('open');
@@ -595,25 +319,11 @@ function updateLightbox() {
   const caption = document.getElementById('lightboxCaption');
   const current = currentLightboxImages[currentLightboxIndex];
 
-  if (current.src) {
-    img.src = current.src;
-  } else {
-    // Create gradient canvas for placeholder
-    const canvas = document.createElement('canvas');
-    canvas.width = 1200;
-    canvas.height = 800;
-    const ctx = canvas.getContext('2d');
-    const gradient = ctx.createLinearGradient(0, 0, 1200, 800);
-    const colors = current.gradient.match(/#[0-9A-Fa-f]{6}/g) || ['#888888', '#444444'];
-    gradient.addColorStop(0, colors[0]);
-    gradient.addColorStop(1, colors[1]);
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 1200, 800);
-    img.src = canvas.toDataURL();
-  }
+  if (!current) return;
 
-  img.alt = current.caption;
-  caption.textContent = `${current.caption} — ${currentLightboxIndex + 1} / ${currentLightboxImages.length}`;
+  img.src = current.src || '';
+  img.alt = current.caption || '';
+  caption.textContent = `${current.caption || ''} — ${currentLightboxIndex + 1} / ${currentLightboxImages.length}`;
 }
 
 function closeLightbox() {
@@ -621,11 +331,13 @@ function closeLightbox() {
 }
 
 function lightboxNext() {
+  if (currentLightboxImages.length === 0) return;
   currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxImages.length;
   updateLightbox();
 }
 
 function lightboxPrev() {
+  if (currentLightboxImages.length === 0) return;
   currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxImages.length) % currentLightboxImages.length;
   updateLightbox();
 }
@@ -633,7 +345,6 @@ function lightboxPrev() {
 document.getElementById('lightboxClose')?.addEventListener('click', closeLightbox);
 document.getElementById('lightboxNext')?.addEventListener('click', lightboxNext);
 document.getElementById('lightboxPrev')?.addEventListener('click', lightboxPrev);
-
 document.getElementById('lightbox')?.addEventListener('click', (e) => {
   if (e.target === e.currentTarget) closeLightbox();
 });
@@ -645,8 +356,8 @@ document.addEventListener('keydown', (e) => {
 });
 
 /* ===================================================
-   SMOOTH SCROLL
-   =================================================== */
+ SMOOTH SCROLL
+ =================================================== */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     const target = document.querySelector(link.getAttribute('href'));
@@ -657,8 +368,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 /* ===================================================
-   PARALLAX HERO
-   =================================================== */
+ PARALLAX HERO
+ =================================================== */
 (function initParallax() {
   const heroContent = document.querySelector('.hero-content');
   const heroGrid = document.querySelector('.hero-grid-bg');
@@ -680,8 +391,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 })();
 
 /* ===================================================
-   SCROLL VELOCITY DETECTION
-   =================================================== */
+ SCROLL VELOCITY DETECTION
+ =================================================== */
 (function initScrollVelocity() {
   let lastScrollTop = 0;
   let ticking = false;
@@ -701,20 +412,18 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 })();
 
 /* ===================================================
- CUSTOM CURSOR — Technical Drafting Compass Style
+ CUSTOM CURSOR
  =================================================== */
 (function initCustomCursor() {
   const cursor = document.getElementById('customCursor');
   if (!cursor) return;
 
-  // Check for touch device - skip custom cursor
   if (window.matchMedia('(pointer: coarse)').matches) {
     cursor.style.display = 'none';
     document.documentElement.style.cursor = 'auto';
     return;
   }
 
-  // Set initial position off-screen
   cursor.style.transform = 'translate3d(-100px, -100px, 0)';
 
   let mouseX = -100;
@@ -722,8 +431,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   let cursorX = -100;
   let cursorY = -100;
   let isActive = false;
-
-  // Smooth follow with slight delay for mechanical feel
   const smoothFactor = 0.15;
 
   document.addEventListener('mousemove', (e) => {
@@ -738,16 +445,13 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   }, { passive: true });
 
   function animateCursor() {
-    // Linear interpolation for smooth following
     cursorX += (mouseX - cursorX) * smoothFactor;
     cursorY += (mouseY - cursorY) * smoothFactor;
-
     cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
     requestAnimationFrame(animateCursor);
   }
   animateCursor();
 
-  // Hover states for interactive elements
   const hoverElements = document.querySelectorAll(
     'a, button, [role="button"], input, textarea, select, .project-card, .filter-btn, .gallery-item, .contact-link'
   );
@@ -757,17 +461,13 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
   });
 
-  // Click states
   document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
   document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
-
-  // Handle mouse leaving/entering window
-  document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-  });
-  document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = '1';
-  });
+  document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
 })();
 
-console.log('🏛️ Architecture Portfolio — Technical Drafting Aesthetic · Shashank Agarwal 2026');
+// FIX: Initialize by fetching projects.json on page load
+loadProjects();
+
+console.log('Architecture Portfolio — Dynamic Loading · Shashank Agarwal 2026');

@@ -1,0 +1,10 @@
+{
+  "notes": "Customize project metadata here. This file overrides defaults in generate-projects.js",
+  "example": {
+    "project1": {
+      "title": "Your Custom Title",
+      "year": "2026",
+      "description": ["Override description line 1", "Description line 2"]
+    }
+  }
+}
