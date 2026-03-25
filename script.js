@@ -187,7 +187,9 @@ function openProject(key) {
   // Build gallery - paths in JSON are already relative to index.html
   const galleryItems = (project.images || []).map((img, i) => {
     const sheetNum = String(i + 1).padStart(2, '0');
+    debugger
     if (img.src) {
+      console.log("debug [image]: "+img.src)
       return `
       <div class="gallery-item" onclick="openLightbox(${i}, '${key}')">
         <div class="gallery-item-corner gallery-item-corner--top"></div>
