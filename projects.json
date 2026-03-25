@@ -676,6 +676,37 @@
         "caption": "33"
       }
     ],
-    "downloads": []
+    "downloads": [
+      {
+        "name": "9",
+        "file": "projects/project5/download/9.jpg",
+        "size": "JPG"
+      },
+      {
+        "name": "18",
+        "file": "projects/project5/download/18.jpg",
+        "size": "JPG"
+      },
+      {
+        "name": "19",
+        "file": "projects/project5/download/19.jpg",
+        "size": "JPG"
+      },
+      {
+        "name": "31",
+        "file": "projects/project5/download/31.jpg",
+        "size": "JPG"
+      },
+      {
+        "name": "32",
+        "file": "projects/project5/download/32.jpg",
+        "size": "JPG"
+      },
+      {
+        "name": "33",
+        "file": "projects/project5/download/33.jpg",
+        "size": "JPG"
+      }
+    ]
   }
 }
